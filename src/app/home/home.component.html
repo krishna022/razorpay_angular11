@@ -1,0 +1,42 @@
+<form [formGroup]="paymentForm" autocomplete="off" (ngSubmit)="onOpenGateway()">
+    <h3>Razorpay Payment Gateway (Angular 11)</h3>
+    <div class="form-group">
+        <label>Amount <span class="required">*</span></label>
+        <input type="text" class="form-control" formControlName="amount" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }">
+        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+            <div *ngIf="f.amount.errors.required">Amount is required</div>
+          </div>
+    </div>
+        <div class="form-group">
+            <label>Your Name <span class="required">*</span></label>
+            <input type="text" class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label>Email Address <span class="required">*</span></label>
+            <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label>Phone <span class="required">*</span></label>
+            <input type="text" class="form-control" formControlName="mobile" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }">
+            <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                <div *ngIf="f.mobile.errors.required">Phone is required</div>
+                <div *ngIf="f.mobile.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <textarea class="form-control" rows="4" formControlName="address"></textarea>
+        </div>
+
+        <div class="form-group">
+           <button type="submit">Pay Now</button>
+        </div>
+</form>
+
+<p>Designed By: Krishna Mohan (+65-91440024) / (+91-8950281868)</p>
